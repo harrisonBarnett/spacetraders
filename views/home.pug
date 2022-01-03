@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+    .user-container 
+        p operator: #{userData.username}
+        p credits: #{userData.credits}
+
+    .map-container  
+        h3 the charted universe
+        .map-canvas 
+            each system in mapData 
+                each location in system.locations 
+                    - const position = `left: ${location.x}%; bottom: ${location.y}%`
+                    .map-point(style=position)
+                        .map-point-meta 
+                            p #{location.name} : #{location.symbol}
+                            p #{location.type}
+
