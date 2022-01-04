@@ -8,11 +8,14 @@ block content
     .map-container  
         h3 the charted universe
         .map-canvas 
+            .x-rule
+            .y-rule
             each system in mapData 
                 each location in system.locations 
-                    - const position = `left: ${location.x}%; bottom: ${location.y}%`
+                    - const position = `left: ${location.x}em; bottom: ${location.y}em`
                     .map-point(style=position)
                         .map-point-meta 
                             p #{location.name} : #{location.symbol}
                             p #{location.type}
+                            p #{location.x}, #{location.y}
 
