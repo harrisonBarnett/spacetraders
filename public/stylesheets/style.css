@@ -1,8 +1,17 @@
+:root {
+  --font-color: #fec13f;
+  --font-glow-radius: 1px 1px 2px rgba(250, 254, 63, .5),
+  -1px -1px 2px rgba(250, 254, 63, .5);
+  --background-color: rgba(20, 12, 7);
+}
+
 body, html {
   position: relative;
-  background: black;
+  background: var(--background-color);
   padding: 0;
   margin: 0;
+  overflow-y: auto;
+  font-family: monospace;
 }
 *, ::before, ::after {
   box-sizing: border-box;
@@ -11,31 +20,49 @@ body, html {
   list-style: none;
   text-decoration: none;
 }
+a {
+  color: var(--font-color);
+  text-shadow: var(--font-glow-radius);
+}
+.view-container {
+  margin: 5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+/* NAVIGATION */
 .nav-bar {
+  width: 100%;
   position: absolute;
   top:0;
-  left: 50%;
-  transform: translateX(-50%);
 }
 .nav-bar ul {
-  padding: 1rem;
+  padding-top: 1rem;
   display: flex;
-  gap: 1rem;
 }
 .user-container {
-  padding: 1rem;
+  margin-left: 1rem;
 }
 .user-container p {
-  color: white;
+  color: var(--font-color);
+  text-shadow: var(--font-glow-radius);
 }
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+/* HOME */
+/* map */
 .map-container {
-  padding: 1rem;
+  grid-column: 1/7;
   display: flex;
   flex-direction: column;
-  background: black;
+  background: var(--background-color);
 }
 .map-container h3 {
-  color: white;
+  color: var(--font-color);
+  text-shadow: var(--font-glow-radius);
 }
 .map-canvas {
   height: 200em;
@@ -82,7 +109,16 @@ body, html {
   flex-direction: column;
   font-size: 16px;
   gap: .25rem;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, .25);
-  background: rgba(0,0,0,.75);
+  color: var(--font-color);
+  border: 1px dotted var(--font-color);
+  background: var(--background-color);
+  opacity: .75;
+}
+/* todo */
+.reminders {
+  grid-column: 7/13;
+}
+.reminders h3 {
+  color: var(--font-color);
+  text-shadow: var(--font-glow-radius);
 }
