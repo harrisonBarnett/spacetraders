@@ -1,7 +1,7 @@
 :root {
   --font-color: #fec13f;
-  --font-glow-radius: 1px 1px 2px rgba(250, 254, 63, .5),
-  -1px -1px 2px rgba(250, 254, 63, .5);
+  --font-glow-radius: 1px 1px 2px rgba(250, 254, 63, .4),
+  -1px -1px 2px rgba(250, 254, 63, .4);
   --background-color: rgba(20, 12, 7);
 }
 

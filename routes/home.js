@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const axios = require('../axiosConfig')
+const axios = require('../config/axios')
 
 const accountURL = 'https://api.spacetraders.io/my/account'
 const mapURL = 'https://api.spacetraders.io/game/systems'
