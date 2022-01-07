@@ -1,12 +1,15 @@
+require('dotenv').config()
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var homeRouter = require('./routes/home')
+// init application
 var app = express();
+
+// init mongoDB
+require('./config/database')(process.env.DB_URL)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,8 +21,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/home', homeRouter)
+app.use('/', require('./routes/index'));
+app.use('/home', require('./routes/home'))
+app.use('/reminders', require('./routes/reminders'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
